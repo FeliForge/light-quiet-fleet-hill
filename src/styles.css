@@ -1,0 +1,549 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Figtree", "Segoe UI", sans-serif;
+  --font-display: "Bricolage Grotesque", "Segoe UI", sans-serif;
+  --color-bg: #eef3f8;
+  --color-surface: #ffffff;
+  --color-surface-2: #e5ecf4;
+  --color-border: #cbd6e4;
+  --color-fg: #0f1a33;
+  --color-muted: #536079;
+  --color-primary: #2340d8;
+  --color-primary-soft: #e2e7ff;
+  --color-on-primary: #ffffff;
+  --color-accent: #0c7f58;
+  --color-accent-soft: #d9f3e8;
+  --color-danger: #bb1f47;
+  --color-danger-soft: #fde4ea;
+  --color-scrim: #0a102080;
+  --color-geo: #1f8a45;
+  --color-geo-soft: #dff3e5;
+  --color-his: #a86a08;
+  --color-his-soft: #fbeed0;
+  --color-por: #c22560;
+  --color-por-soft: #fce1ec;
+  --color-cie: #08789e;
+  --color-cie-soft: #d6f0f9;
+  --color-mat: #6846b8;
+  --color-mat-soft: #eee7ff;
+  --color-skin-0: #f8d7c4;
+  --color-skin-1: #f0c2a0;
+  --color-skin-2: #d9a57a;
+  --color-skin-3: #b7784e;
+  --color-skin-4: #7a4a32;
+  --color-hair-0: #243044;
+  --color-hair-1: #c9893a;
+  --color-hair-2: #6b3f22;
+  --color-hair-3: #171717;
+  --color-hair-4: #b44820;
+  --color-hair-5: #c43b78;
+  --color-outfit-ice: #d5e4f2;
+  --color-outfit-cape: #3c2a78;
+  --color-ink: #142033;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+}
+
+@layer base {
+  html {
+    color-scheme: light;
+    background: var(--color-bg);
+    color: var(--color-fg);
+  }
+  body {
+    font-family: var(--font-sans);
+    min-height: 100vh;
+    background: var(--color-bg);
+    color: var(--color-fg);
+  }
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --color-bg: #0b1120;
+  --color-surface: #131b2e;
+  --color-surface-2: #1c2640;
+  --color-border: #2b3858;
+  --color-fg: #e8edfb;
+  --color-muted: #9eabc8;
+  --color-primary: #8da2ff;
+  --color-primary-soft: #1f2a5c;
+  --color-on-primary: #0b1330;
+  --color-accent: #6fdbb2;
+  --color-accent-soft: #123a2d;
+  --color-danger: #ffa9bc;
+  --color-danger-soft: #3d1624;
+  --color-scrim: #00000099;
+  --color-geo: #6fd18c;
+  --color-geo-soft: #123322;
+  --color-his: #f0b44c;
+  --color-his-soft: #3a2a0a;
+  --color-por: #ff86ae;
+  --color-por-soft: #401627;
+  --color-cie: #62cdee;
+  --color-cie-soft: #0d3341;
+  --color-mat: #b69cff;
+  --color-mat-soft: #2c2148;
+  --color-ink: #e8edfb;
+  --color-outfit-ice: #9fb4c9;
+  --color-outfit-cape: #b7a6ff;
+}
+
+html[data-skin="bronze"] {
+  --color-bg: #f6efe6;
+  --color-surface: #fffaf4;
+  --color-surface-2: #efe4d6;
+  --color-border: #e0d0bc;
+  --color-fg: #2a1c12;
+  --color-muted: #6d5846;
+  --color-primary: #8a4b1f;
+  --color-primary-soft: #f3e2d2;
+  --color-on-primary: #fffaf5;
+  --color-accent: #8a4b1f;
+}
+html[data-theme="dark"][data-skin="bronze"] {
+  --color-bg: #140e0a;
+  --color-surface: #24180f;
+  --color-surface-2: #322216;
+  --color-border: #4a3424;
+  --color-fg: #f6eadf;
+  --color-muted: #cbb5a2;
+  --color-primary: #e0a36a;
+  --color-primary-soft: #3a2818;
+  --color-on-primary: #2a160c;
+  --color-accent: #e0a36a;
+}
+html[data-skin="prata"] {
+  --color-bg: #eef1f4;
+  --color-surface: #fbfcfd;
+  --color-surface-2: #e3e8ee;
+  --color-border: #c9d2dc;
+  --color-fg: #1b2430;
+  --color-muted: #5c6b7c;
+  --color-primary: #5d6e82;
+  --color-primary-soft: #e4ebf2;
+  --color-on-primary: #f7fafc;
+  --color-accent: #3e6d88;
+}
+html[data-theme="dark"][data-skin="prata"] {
+  --color-bg: #10141a;
+  --color-surface: #1a212b;
+  --color-surface-2: #243040;
+  --color-border: #364556;
+  --color-fg: #e7eef6;
+  --color-muted: #a9b7c6;
+  --color-primary: #c5d2e0;
+  --color-primary-soft: #2a3848;
+  --color-on-primary: #141b24;
+  --color-accent: #9fd0ea;
+}
+html[data-skin="ouro"] {
+  --color-bg: #fbf6ea;
+  --color-surface: #fffdf8;
+  --color-surface-2: #f3e6c4;
+  --color-border: #e4d2a4;
+  --color-fg: #2c220c;
+  --color-muted: #6f5b32;
+  --color-primary: #9a6b08;
+  --color-primary-soft: #f8e7bc;
+  --color-on-primary: #fffaf0;
+  --color-accent: #9a6b08;
+}
+html[data-theme="dark"][data-skin="ouro"] {
+  --color-bg: #161106;
+  --color-surface: #261d0c;
+  --color-surface-2: #34280f;
+  --color-border: #56441a;
+  --color-fg: #f8efd8;
+  --color-muted: #d4c094;
+  --color-primary: #f0c14a;
+  --color-primary-soft: #3d3012;
+  --color-on-primary: #2a1e06;
+  --color-accent: #f0c14a;
+}
+html[data-skin="platina"] {
+  --color-bg: #f3f7fb;
+  --color-surface: #fbfdff;
+  --color-surface-2: #e4eef6;
+  --color-border: #cddcea;
+  --color-fg: #142033;
+  --color-muted: #567089;
+  --color-primary: #3d6f99;
+  --color-primary-soft: #e3f0f8;
+  --color-on-primary: #f5fbff;
+  --color-accent: #2f7d88;
+}
+html[data-theme="dark"][data-skin="platina"] {
+  --color-bg: #0c141c;
+  --color-surface: #152230;
+  --color-surface-2: #1d2e40;
+  --color-border: #31485f;
+  --color-fg: #e7f2fb;
+  --color-muted: #a9c0d4;
+  --color-primary: #b7d4ea;
+  --color-primary-soft: #1d3348;
+  --color-on-primary: #0e1a26;
+  --color-accent: #8fd0d4;
+}
+html[data-skin="esmeralda"] {
+  --color-bg: #eef6f1;
+  --color-surface: #f8fffb;
+  --color-surface-2: #dceee3;
+  --color-border: #b7d8c4;
+  --color-fg: #10261a;
+  --color-muted: #3f6b52;
+  --color-primary: #0f7a45;
+  --color-primary-soft: #d9f3e4;
+  --color-on-primary: #f4fff8;
+  --color-accent: #0f7a45;
+}
+html[data-theme="dark"][data-skin="esmeralda"] {
+  --color-bg: #07140e;
+  --color-surface: #10241a;
+  --color-surface-2: #173224;
+  --color-border: #24553a;
+  --color-fg: #e5f8ee;
+  --color-muted: #9dccb2;
+  --color-primary: #5ddea0;
+  --color-primary-soft: #123524;
+  --color-on-primary: #062014;
+  --color-accent: #5ddea0;
+}
+html[data-skin="rubi"] {
+  --color-bg: #fbf3f5;
+  --color-surface: #fffafb;
+  --color-surface-2: #f8e3e8;
+  --color-border: #ecc9d2;
+  --color-fg: #2c121a;
+  --color-muted: #7a4554;
+  --color-primary: #b4234a;
+  --color-primary-soft: #fde4ea;
+  --color-on-primary: #fff7f8;
+  --color-accent: #b4234a;
+}
+html[data-theme="dark"][data-skin="rubi"] {
+  --color-bg: #16080d;
+  --color-surface: #2a121a;
+  --color-surface-2: #3a1824;
+  --color-border: #5c2838;
+  --color-fg: #fdecef;
+  --color-muted: #e2b3c0;
+  --color-primary: #ff8aa6;
+  --color-primary-soft: #4a1a28;
+  --color-on-primary: #2a0c14;
+  --color-accent: #ff8aa6;
+}
+html[data-skin="safira"] {
+  --color-bg: #eef2fb;
+  --color-surface: #f8faff;
+  --color-surface-2: #e1e7f6;
+  --color-border: #c5d0ea;
+  --color-fg: #101833;
+  --color-muted: #4d5d86;
+  --color-primary: #1d3e9a;
+  --color-primary-soft: #e0e7ff;
+  --color-on-primary: #f5f7ff;
+  --color-accent: #1d4e8f;
+}
+html[data-theme="dark"][data-skin="safira"] {
+  --color-bg: #070b18;
+  --color-surface: #121933;
+  --color-surface-2: #1a2450;
+  --color-border: #2c3d78;
+  --color-fg: #e8edff;
+  --color-muted: #b0bce8;
+  --color-primary: #9eb0ff;
+  --color-primary-soft: #1c2758;
+  --color-on-primary: #0a1030;
+  --color-accent: #9eb0ff;
+}
+html[data-skin="diamante"] {
+  --color-bg: #f2fbfb;
+  --color-surface: #fbfeff;
+  --color-surface-2: #e3f4f6;
+  --color-border: #c5e4e8;
+  --color-fg: #102428;
+  --color-muted: #3f6c74;
+  --color-primary: #0e7c8a;
+  --color-primary-soft: #d8f4f7;
+  --color-on-primary: #f4feff;
+  --color-accent: #0e7c8a;
+}
+html[data-theme="dark"][data-skin="diamante"] {
+  --color-bg: #071214;
+  --color-surface: #102226;
+  --color-surface-2: #163138;
+  --color-border: #24555e;
+  --color-fg: #e6f8fa;
+  --color-muted: #a6d0d6;
+  --color-primary: #7ee3ef;
+  --color-primary-soft: #12383e;
+  --color-on-primary: #062024;
+  --color-accent: #7ee3ef;
+}
+html[data-skin="lendaria"] {
+  --color-bg: #f5f2fb;
+  --color-surface: #fcfaff;
+  --color-surface-2: #ebe4f8;
+  --color-border: #d4c8ee;
+  --color-fg: #1c1430;
+  --color-muted: #645686;
+  --color-primary: #5b3db8;
+  --color-primary-soft: #ece4ff;
+  --color-on-primary: #faf8ff;
+  --color-accent: #5b3db8;
+}
+html[data-theme="dark"][data-skin="lendaria"] {
+  --color-bg: #100b1c;
+  --color-surface: #1c1430;
+  --color-surface-2: #2a1d48;
+  --color-border: #463472;
+  --color-fg: #f3edff;
+  --color-muted: #c4b6e6;
+  --color-primary: #c4b0ff;
+  --color-primary-soft: #2c2150;
+  --color-on-primary: #160e2c;
+  --color-accent: #c4b0ff;
+}
+html[data-skin="cromatico"] {
+  --color-primary: #2340d8;
+  --color-primary-soft: #e2e7ff;
+  --color-accent: #0c7f58;
+}
+html[data-theme="dark"][data-skin="cromatico"] {
+  --color-primary: #b7c4ff;
+  --color-primary-soft: #1f2a5c;
+  --color-on-primary: #0b1330;
+  --color-accent: #6fdbb2;
+}
+
+[data-subject="geografia"] {
+  --s: var(--color-geo);
+  --s-soft: var(--color-geo-soft);
+}
+[data-subject="historia"] {
+  --s: var(--color-his);
+  --s-soft: var(--color-his-soft);
+}
+[data-subject="portugues"] {
+  --s: var(--color-por);
+  --s-soft: var(--color-por-soft);
+}
+[data-subject="ciencias"] {
+  --s: var(--color-cie);
+  --s-soft: var(--color-cie-soft);
+}
+[data-subject="matematica"] {
+  --s: var(--color-mat);
+  --s-soft: var(--color-mat-soft);
+}
+
+@layer components {
+  .font-display {
+    font-family: var(--font-display);
+  }
+  .btn-primary,
+  .btn-ghost,
+  .btn-icon {
+    min-height: 2.75rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: var(--radius-lg);
+    font-weight: 700;
+  }
+  .btn-primary {
+    background: var(--color-primary);
+    color: var(--color-on-primary);
+    padding-inline: 1rem;
+    box-shadow: 0 3px color-mix(in oklab, var(--color-primary) 62%, black);
+  }
+  .btn-primary:disabled {
+    cursor: not-allowed;
+    opacity: 0.45;
+  }
+  .btn-ghost {
+    background: var(--color-surface);
+    color: var(--color-fg);
+    border: 1px solid var(--color-border);
+    padding-inline: 0.9rem;
+  }
+  .btn-icon {
+    width: 2.75rem;
+    background: transparent;
+    color: var(--color-fg);
+  }
+  .cover {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    border-radius: 0.875rem;
+    padding: 1.25rem 1.25rem 1.25rem 1.7rem;
+    box-shadow: 3px 3px 0 var(--color-border);
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+  }
+  .cover::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 0.65rem;
+    background: var(--s, var(--color-primary));
+  }
+  .cover:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0 var(--s, var(--color-primary));
+  }
+  .cover-num {
+    font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 0.9;
+    color: var(--s, var(--color-primary));
+  }
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 0.375rem;
+    padding: 0.15rem 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    background: var(--s-soft, var(--color-primary-soft));
+    color: var(--s, var(--color-primary));
+  }
+  .subject-bar {
+    height: 0.5rem;
+    overflow: hidden;
+    border-radius: 999px;
+    background: var(--s-soft, var(--color-primary-soft));
+  }
+  .subject-bar > span {
+    display: block;
+    height: 100%;
+    border-radius: 999px;
+    background: var(--s, var(--color-primary));
+  }
+  .card {
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    border-radius: 1rem;
+    padding: 1.25rem;
+  }
+  .pick {
+    min-height: 2.75rem;
+    border-radius: 0.75rem;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    padding: 0.4rem 0.75rem;
+    font-weight: 700;
+    color: var(--color-fg);
+  }
+  .pick[aria-pressed="true"] {
+    border-color: var(--color-primary);
+    background: var(--color-primary-soft);
+    color: var(--color-primary);
+    box-shadow: inset 0 0 0 1px var(--color-primary);
+  }
+  .pick:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+  }
+  .option {
+    width: 100%;
+    min-height: 3rem;
+    text-align: left;
+    border-radius: 0.75rem;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    padding: 0.75rem 0.9rem;
+    font-weight: 650;
+    color: var(--color-fg);
+  }
+  .option[data-state="picked"] {
+    border-color: var(--color-primary);
+    background: var(--color-primary-soft);
+  }
+  .option[data-state="right"] {
+    border-color: var(--color-accent);
+    background: var(--color-accent-soft);
+  }
+  .option[data-state="wrong"] {
+    border-color: var(--color-danger);
+    background: var(--color-danger-soft);
+  }
+  .nav-link {
+    display: flex;
+    min-height: 2.75rem;
+    align-items: center;
+    gap: 0.75rem;
+    border-radius: 0.5rem;
+    padding-inline: 0.75rem;
+    font-weight: 700;
+    color: var(--color-muted);
+  }
+  .nav-link[data-active="true"] {
+    background: var(--color-primary-soft);
+    color: var(--color-primary);
+    box-shadow: inset 4px 0 0 var(--color-primary);
+  }
+  .st-0 { fill: var(--color-skin-0); }
+  .st-1 { fill: var(--color-skin-1); }
+  .st-2 { fill: var(--color-skin-2); }
+  .st-3 { fill: var(--color-skin-3); }
+  .st-4 { fill: var(--color-skin-4); }
+  .hc-0 { fill: var(--color-hair-0); }
+  .hc-1 { fill: var(--color-hair-1); }
+  .hc-2 { fill: var(--color-hair-2); }
+  .hc-3 { fill: var(--color-hair-3); }
+  .hc-4 { fill: var(--color-hair-4); }
+  .hc-5 { fill: var(--color-hair-5); }
+  .outfit-0 { fill: var(--color-primary); }
+  .outfit-1 { fill: var(--color-outfit-ice); }
+  .outfit-2 { fill: var(--color-outfit-cape); }
+  .ink { fill: var(--color-ink); }
+  .blush { fill: var(--color-por); }
+}
+
+html[data-skin="cromatico"] .btn-primary,
+html[data-skin="cromatico"] .chroma-bar > span {
+  background-image: linear-gradient(
+    100deg,
+    var(--color-por),
+    var(--color-his),
+    var(--color-geo),
+    var(--color-cie),
+    var(--color-mat),
+    var(--color-por)
+  );
+  background-size: 220% 100%;
+  animation: chroma 8s linear infinite;
+  color: #fff;
+}
+html[data-theme="dark"][data-skin="cromatico"] .btn-primary {
+  color: #0b1330;
+}
+
+@keyframes chroma {
+  from { background-position: 0% 50%; }
+  to { background-position: 100% 50%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cover,
+  html[data-skin="cromatico"] .btn-primary,
+  html[data-skin="cromatico"] .chroma-bar > span {
+    transition: none;
+    animation: none;
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "StudySphere",
+      "hasCanvas": false,
+      "bodyTextLen": 1845,
+      "bodyTextHash": "322195b698c76854d551268dec176ee115e3a2e09b9f0e0f8aec32b647031228",
+      "bodyTextPrefix": "S StudySphere Início Módulos Desafio Ligas Perfil Estudante Bron",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "StudySphere",
+      "hasCanvas": false,
+      "bodyTextLen": 1857,
+      "bodyTextHash": "3a3dc64915bf8b08aee74ebd1c7db25432a6e2a4287bdbba3be74fc753f0bf50",
+      "bodyTextPrefix": "StudySphere S StudySphere Início Módulos Desafio Ligas Perfil Es",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-preview.json"
+}
